@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Pagina de inicio</title>
+</head>
+<body>
+    <h3>Hola <span id="nombre"></span> Bienvenido, Está es tu página de inicio</h3>
+    <button onclick="cerrarSesion()" class="#616161 grey darken-2">Cerrar sesion</button>
+
+    <script>
+        let auth = sessionStorage.getItem('auth');
+        let nombre = sessionStorage.getItem('nombre');
+        document.getElementById('nombre').innerText = nombre;
+            if(auth != "si"){
+            location.href = "index.html";
+        }
+        function  Cerrarseccion() {
+        
+            sessionStorage.setItem("nombre","");
+            sessionStorage.setItem("auth","");
+            location.href = "inicio.html";
+        }
+
+        function cerrarSesion(){
+            sessionStorage.setItem('nombre', "");
+            sessionStorage.setItem('auth', "");
+            location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
